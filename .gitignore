@@ -1,5 +1,7 @@
 [Bb]in/
 [Oo]bj/
+deploy/
+packages/
 
 *.suo
 *.user
