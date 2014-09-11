@@ -40,9 +40,4 @@ using System.Runtime.InteropServices;
 //[assembly: AssemblyFileVersion( "4.9.7.*" )]
 //[assembly: AllowPartiallyTrustedCallers]
 
-[assembly : InternalsVisibleTo("GrantaChartingTest,PublicKey=" +
-                               "0024000004800000940000000602000000240000525341310004000001000100fb60ed56a6eb7b" +
-                               "e4d09a708052df372dd287545e8b4210e82b5761f8d78a028e5850c25003112ac25370389275e5" +
-                               "3b0f7d32e4dff87c60a1008f739b2a2bea7e43bbb656ab5df225329d4ca1f59cd1d121f8df6fd0" +
-                               "795ebe486e95fd7c4a4b5cd7aed9e5cd44d1d89d66e2be6038dcfb0aa77bd17c3dfbad992267f6" +
-                               "1e9f61c6")]
+[assembly : InternalsVisibleTo("GrantaChartingTest")]

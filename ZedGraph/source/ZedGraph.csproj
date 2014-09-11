@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ZedGraph</RootNamespace>
     <AssemblyName>ZedGraph</AssemblyName>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\zedgraphkey.snk</AssemblyOriginatorKeyFile>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -487,20 +487,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\zedgraphkey.snk">
-      <Link>zedgraphkey.snk</Link>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\SvgNet\SvgNet.csproj">
       <Project>{bb4c8021-b5e1-4de2-82cb-14bdfb9837e4}</Project>
       <Name>SvgNet</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-    <Target Name="AfterBuild">
-        <Message Text="Copying output to deployment folder..." />
-        <Copy SourceFiles="$(TargetDir)$(TargetName).dll" DestinationFolder="$(ProjectDir)..\..\deploy" SkipUnchangedFiles="true" />
-        <Copy Condition="'$(Configuration)' == 'Debug'" SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ProjectDir)..\..\deploy" SkipUnchangedFiles="true" />
-    </Target>
+  <Target Name="AfterBuild">
+    <Message Text="Copying output to deployment folder..." />
+    <Copy SourceFiles="$(TargetDir)$(TargetName).dll" DestinationFolder="$(ProjectDir)..\..\deploy" SkipUnchangedFiles="true" />
+    <Copy Condition="'$(Configuration)' == 'Debug'" SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ProjectDir)..\..\deploy" SkipUnchangedFiles="true" />
+  </Target>
 </Project>
