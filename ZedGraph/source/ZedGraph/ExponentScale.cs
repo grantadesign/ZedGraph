@@ -253,7 +253,7 @@ namespace ZedGraph
 			base.PickScale( pane, g, scaleFactor );
 
 			// Test for trivial condition of range = 0 and pick a suitable default
-			if ( _max - _min < 1.0e-20 )
+			if ( _max - _min < SmallestValue )
 			{
 				if ( _maxAuto )
 					_max = _max + 0.2 * ( _max == 0 ? 1.0 : Math.Abs( _max ) );

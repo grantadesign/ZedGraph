@@ -44,6 +44,8 @@ namespace ZedGraph
 	[Serializable]
 	abstract public class Scale : ISerializable
 	{
+        protected const double SmallestValue = 1.0e-30;
+
 	#region Fields
 
 		/// <summary> Private fields for the <see cref="Axis"/> scale definitions.
@@ -2558,9 +2560,9 @@ namespace ZedGraph
 				double mag = -100;
 				double mag2 = -100;
 
-				if ( Math.Abs( _min ) > 1.0e-30 )
+				if ( Math.Abs( _min ) > SmallestValue )
 					mag = Math.Floor( Math.Log10( Math.Abs( _min ) ) );
-				if ( Math.Abs( _max ) > 1.0e-30 )
+				if ( Math.Abs( _max ) > SmallestValue )
 					mag2 = Math.Floor( Math.Log10( Math.Abs( _max ) ) );
 
 				mag = Math.Max( mag2, mag );
@@ -2927,7 +2929,7 @@ namespace ZedGraph
 		/// argument was negative or zero</returns>
 		public static double SafeLog( double x )
 		{
-			if ( x > 1.0e-20 )
+			if ( x > SmallestValue )
 				return Math.Log10( x );
 			else
 				return 0.0;
@@ -2940,7 +2942,7 @@ namespace ZedGraph
 		/// <param name="exponent">The exponent value to use for calculating the exponential.</param>
 		public static double SafeExp( double x, double exponent )
 		{
-			if ( x > 1.0e-20 )
+			if ( x > SmallestValue )
 				return Math.Pow( x, exponent );
 			else
 				return 0.0;
