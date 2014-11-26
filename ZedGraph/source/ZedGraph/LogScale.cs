@@ -336,11 +336,6 @@ namespace ZedGraph
 
             if(_minAuto && _maxAuto)
             {
-                //iStart = (int) ( Math.Ceiling( SafeLog( this.min ) - 1.0e-12 ) );
-                //iEnd = (int) ( Math.Floor( SafeLog( this.max ) + 1.0e-12 ) );
-
-                //nTics = (int)( ( Math.Floor( Scale.SafeLog( _max ) + 1.0e-12 ) ) -
-                //		( Math.Ceiling( Scale.SafeLog( _min ) - 1.0e-12 ) ) + 1 ) / CyclesPerStep;
                 nTics = (int)( ( SafeLog( _max ) - SafeLog( _min ) ) / CyclesPerStep ) + 1;
             }
             else
@@ -515,7 +510,7 @@ namespace ZedGraph
 			//this.numDec = 0;		// The number of decimal places to display is not used
 
 			// Test for trivial condition of range = 0 and pick a suitable default
-			if ( _max - _min < 1.0e-20 )
+			if ( _max - _min < SmallestValue )
 			{
 				if ( _maxAuto )
 					_max = _max * 2.0;
