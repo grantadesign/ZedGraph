@@ -18,12 +18,9 @@
 //=============================================================================
 
 using System;
-using System.Collections;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using SvgNet.SvgGdi;
 
 namespace ZedGraph
@@ -43,8 +40,8 @@ namespace ZedGraph
 	/// <version> $Revision: 1.33 $ $Date: 2007/09/19 06:41:56 $ </version>
 	[Serializable]
 	abstract public class Scale : ISerializable
-	{
-        protected const double SmallestValue = 1.0e-30;
+    {
+        protected const double SmallestValue = double.Epsilon;
 
 	#region Fields
 
@@ -2581,9 +2578,9 @@ namespace ZedGraph
 				int numDec = 0 - (int) ( Math.Floor( Math.Log10( _majorStep ) ) - _mag );
 				if ( numDec < 0 )
 					numDec = 0;
-				_format = "f" + numDec.ToString();
-			}
-		}
+                _format = "0." + new string('0', numDec);
+            }
+        }
 
 		/// <summary>
 		/// Calculate a step size based on a data range.
