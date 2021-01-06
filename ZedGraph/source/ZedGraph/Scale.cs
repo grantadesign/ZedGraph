@@ -18,13 +18,9 @@
 //=============================================================================
 
 using System;
-using System.Collections;
-using System.Text;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
 using SvgNet.SvgGdi;
 
 namespace ZedGraph
