@@ -334,7 +334,7 @@ namespace ZedGraph
 				int numDec = 0 - (int) ( Math.Floor( Math.Log10( _majorStep ) ) - _mag );
 				if ( numDec < 0 )
 					numDec = 0;
-				_format = "0." + new string('#', numDec);
+				_format = "0." + new string('0', numDec);
 			}
 		}
 
