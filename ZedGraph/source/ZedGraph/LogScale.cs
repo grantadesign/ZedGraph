@@ -477,7 +477,8 @@ namespace ZedGraph
                     _minGrace = 0;
                 }
                 double graceVal = CalcMinValue(minVal, maxVal, _minGrace);
-                double nextProperPowerOf10 = Math.Pow(10.0, Math.Floor(Math.Log10(minVal)));
+                const double MarginFactor = 0.96; // this is to prevent values that match powers of 10 ending up exactly at the edge of the graph
+                double nextProperPowerOf10 = Math.Pow(10.0, Math.Floor(Math.Log10(minVal * MarginFactor)));
                 _min = graceVal < nextProperPowerOf10 ? nextProperPowerOf10 : graceVal; // don't use grace val if there is a power of 10 between the data start and the garce value
             }
 
@@ -488,7 +489,8 @@ namespace ZedGraph
                     _maxGrace = 0;
                 }
                 double graceVal = CalcMaxValue(minVal, maxVal, _maxGrace);
-                double nextProperPowerOf10 = Math.Pow(10.0, Math.Ceiling(Math.Log10(maxVal)));
+                const double MarginFactor = 1.04; // this is to prevent values that match powers of 10 ending up exactly at the edge of the graph
+                double nextProperPowerOf10 = Math.Pow(10.0, Math.Ceiling(Math.Log10(maxVal * MarginFactor)));
                 _max = graceVal > nextProperPowerOf10 ? nextProperPowerOf10 : graceVal;
             }
             
